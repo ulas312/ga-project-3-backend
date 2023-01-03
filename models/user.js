@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import bcrypt from 'brcypt';
+import bcrypt from 'bcrypt';
 import uniqueValidator from 'mongoose-unique-validator';
 import mongooseHidden from 'mongoose-hidden';
 import { emailRegex } from '../lib/stringTesters.js';
@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
 
 userSchema.pre('save', function encryptPassword(next) {
   if (this.isModified('password')) {
-    this.password = bcrypt.hashSynch(this.password, bcrypt.genSaltSync());
+    this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync());
   }
   next();
 });
