@@ -24,7 +24,7 @@ const getWorkoutsByMuscleGroup = async (req, res, next) => {
   }
 };
 
-const getWorkoutLog = async (req, res, next) => {
+const getWorkoutLog = async (_req, res, next) => {
   try {
     const logWorkout = await Activity.find();
     return res.status(200).json(logWorkout);
