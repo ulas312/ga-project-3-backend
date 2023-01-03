@@ -6,7 +6,7 @@ import { emailRegex } from '../lib/stringTesters.js';
 
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true },
-  // isAdmin: { type: Boolean },
+  isAdmin: { type: Boolean },
   email: {
     type: String,
     required: true,
