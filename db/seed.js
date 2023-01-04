@@ -258,7 +258,7 @@ async function seedDb() {
     { $push: { groups: backAndBicepsFromDb.map((b) => b._id) } }
   );
 
-  const legsAndAbs = await Muscle.create({
+  const legsAndAbsGroup = await Muscle.create({
     name: 'Legs & Abs',
   });
   console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', legsAndAbs._id);
