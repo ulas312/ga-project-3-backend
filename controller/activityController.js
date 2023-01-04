@@ -9,6 +9,18 @@ const getWorkoutLog = async (_req, res, next) => {
   }
 };
 
+const updateWorkoutLog = async (req, res, next) => {
+  try {
+    const workoutLog = await Activity.findById(req.params.id);
+    workoutLog.set(req.body);
+    const updateWorkoutLog = await workoutLog.save();
+    return res.status(301).json(updateWorkoutLog);
+  } catch (e) {
+    next(e);
+  }
+};
+
 export default {
   getWorkoutLog,
+  updateWorkoutLog,
 };

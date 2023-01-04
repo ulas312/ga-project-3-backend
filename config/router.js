@@ -25,7 +25,9 @@ Router.route('/muscle-group/:id/workouts').get(
   muscleGroupController.getWorkoutsByMuscleGroup
 );
 
-Router.route('/log-workout').get(activityController.getWorkoutLog);
+Router.route('/log-workout')
+  .get(activityController.getWorkoutLog)
+  .put(activityController.updateWorkoutLog);
 
 Router.route('/account/:id')
   .get(accountController.getUserAccount)
