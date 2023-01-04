@@ -225,16 +225,73 @@ async function seedDb() {
   });
   console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', chestShouldersTriceps._id);
 
-  const updatedChestShouldersTriceps = muscle.map((area) => ({
+  const updatedChestShouldersTriceps = Muscle.map((area) => ({
     ...area,
-    muscleGroup: chestShouldersTricepsGroup._id,
+    addedBy: adminUser._id,
+    workout: chestShouldersTricepsGroup._id,
   }));
 
-  const chestShouldersTricepsFromDb = await muscle.create(updatedMuscleGroup);
+  const chestShouldersTricepsFromDb = await Muscle.create(
+    updatedChestShouldersTriceps
+  );
 
   await Muscle.findOneAndUpdate(
     { _id: chestShouldersTricepsGroup._id },
     { $push: { groups: chestShouldersTricepsFromDb.map((b) => b._id) } }
+  );
+
+  const backAndBicepsGroup = await Muscle.create({
+    name: 'Back & Biceps',
+  });
+  console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', backAndBiceps._id);
+
+  const updatedBackAndBiceps = Muscle.map((area) => ({
+    ...area,
+    addedBy: adminUser._id,
+    workout: backAndBicepsGroup._id,
+  }));
+
+  const backAndBicepsFromDb = await Muscle.create(updatedBackAndBiceps);
+
+  await Muscle.findOneAndUpdate(
+    { _id: backAndBicepsGroup._id },
+    { $push: { groups: backAndBicepsFromDb.map((b) => b._id) } }
+  );
+
+  const legsAndAbs = await Muscle.create({
+    name: 'Legs & Abs',
+  });
+  console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', legsAndAbs._id);
+
+  const updatedLegsAndAbs = Muscle.map((area) => ({
+    ...area,
+    addedBy: adminUser._id,
+    workout: legsAndAbsGroup._id,
+  }));
+
+  const legsAndAbsFromDb = await Muscle.create(updatedLegsAndAbs);
+
+  await Muscle.findOneAndUpdate(
+    { _id: legsAndAbsGroup._id },
+    { $push: { groups: legsAndAbsFromDb.map((b) => b._id) } }
+  );
+
+  const fullBodyGroup = await Muscle.create({
+    name: 'Full Body',
+  });
+  console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', fullBody._id);
+
+  const updatedFullBody = Muscle.map((area) => ({
+    ...area,
+    addedBy: adminUser._id,
+    workout: fullBodyGroup._id,
+  }));
+
+  const fullBodyFromDb = await Muscle.create(updatedFullBody);
+
+  await Muscle.findOneAndUpdate(
+    { _id: fullBodyGroup._id },
+    { $push: { groups: fullBodyFromDb.map((b) => b._id) } }
   );
 
   await disconnectDb();
