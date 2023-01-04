@@ -11,7 +11,7 @@ const getAllMuscleGroups = async (_req, res, next) => {
 
 const getWorkoutsByMuscleGroup = async (req, res, next) => {
   try {
-    const workouts = await Muscle.findById(req.params.id).populate('workouts');
+    const workouts = await Muscle.findById(req.params.id).populate('workout');
     return workouts
       ? res.status(200).json(workouts)
       : res
