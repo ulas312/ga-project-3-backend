@@ -225,13 +225,18 @@ async function seedDb() {
   });
   console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', chestShouldersTriceps);
 
+<<<<<<< HEAD
   const updatedChestShouldersTriceps = chestShouldersTriceps.map((workout) => ({
     ...workout,
+=======
+  const updatedChestShouldersTriceps = Muscle.map((area) => ({
+    ...area,
+>>>>>>> development
     addedBy: adminUser._id,
     muscleGroup: chestShouldersTricepsGroup._id,
   }));
 
-  const chestShouldersTricepsFromDb = await Workouts.create(
+  const chestShouldersTricepsFromDb = await Muscle.create(
     updatedChestShouldersTriceps
   );
 
@@ -245,13 +250,18 @@ async function seedDb() {
   });
   console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', backAndBiceps);
 
+<<<<<<< HEAD
   const updatedBackAndBiceps = backAndBiceps.map((workout) => ({
     ...workout,
+=======
+  const updatedBackAndBiceps = Muscle.map((area) => ({
+    ...area,
+>>>>>>> development
     addedBy: adminUser._id,
     workout: backAndBicepsGroup._id,
   }));
 
-  const backAndBicepsFromDb = await Workouts.create(updatedBackAndBiceps);
+  const backAndBicepsFromDb = await Muscle.create(updatedBackAndBiceps);
 
   await Muscle.findOneAndUpdate(
     { _id: backAndBicepsGroup._id },
@@ -263,13 +273,18 @@ async function seedDb() {
   });
   console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', legsAndAbs);
 
+<<<<<<< HEAD
   const updatedLegsAndAbs = legsAndAbs.map((workout) => ({
     ...workout,
+=======
+  const updatedLegsAndAbs = Muscle.map((area) => ({
+    ...area,
+>>>>>>> development
     addedBy: adminUser._id,
     workout: legsAndAbsGroup._id,
   }));
 
-  const legsAndAbsFromDb = await Workouts.create(updatedLegsAndAbs);
+  const legsAndAbsFromDb = await Muscle.create(updatedLegsAndAbs);
 
   await Muscle.findOneAndUpdate(
     { _id: legsAndAbsGroup._id },
@@ -281,13 +296,18 @@ async function seedDb() {
   });
   console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', fullBody);
 
+<<<<<<< HEAD
   const updatedFullBody = fullBody.map((workout) => ({
     ...workout,
+=======
+  const updatedFullBody = Muscle.map((area) => ({
+    ...area,
+>>>>>>> development
     addedBy: adminUser._id,
     workout: fullBodyGroup._id,
   }));
 
-  const fullBodyFromDb = await Workouts.create(updatedFullBody);
+  const fullBodyFromDb = await Muscle.create(updatedFullBody);
 
   await Muscle.findOneAndUpdate(
     { _id: fullBodyGroup._id },

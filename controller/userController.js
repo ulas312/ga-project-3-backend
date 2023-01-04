@@ -52,4 +52,4 @@ const getUserAccount = async (req, res, next) => {
   }
 };
 
-export default { registerUser, loginUser };
+export default { registerUser, loginUser, getUserAccount };
