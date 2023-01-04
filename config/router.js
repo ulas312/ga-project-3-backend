@@ -3,6 +3,8 @@ import muscleGroupController from '../controller/muscleGroupController.js';
 import workoutsController from '../controller/workoutsController.js';
 import userController from '../controller/userController.js';
 import secureRoute from '../middleware/secureRoute.js';
+import activityController from '../controller/activityController.js';
+import accountController from '../controller/accountController.js';
 
 const Router = express.Router();
 
@@ -10,7 +12,7 @@ Router.route('/workouts')
   .get(workoutsController.getAllWorkouts)
   .post(secureRoute, workoutsController.createNewWorkout);
 
-// Router.route('/workouts/search').get(workoutsController.searchWorkouts)
+Router.route('/workouts/search').get(workoutsController.searchWorkouts);
 
 Router.route('/workouts/:id')
   .get(workoutsController.getSingleWorkout)
@@ -22,10 +24,13 @@ Router.route('/muscle-group').get(muscleGroupController.getAllMuscleGroups);
 Router.route('/muscle-group/:id/workouts').get(
   muscleGroupController.getWorkoutsByMuscleGroup
 );
-  
-// Router.route('/log-workout').get(workoutsController.getWorkoutLog);
 
-// Router.route('/account').get(userController.getUserAccount);
+Router.route('/log-workout').get(activityController.getWorkoutLog);
+
+Router.route('/account/:id')
+  .get(accountController.getUserAccount)
+  .put(secureRoute, accountController.updateUserAccount)
+  .delete(secureRoute, accountController.deleteUserAccount);
 
 Router.route('/register').post(userController.registerUser);
 

@@ -1,4 +1,3 @@
-import Activity from '../models/activity.js';
 import Muscle from '../models/muscle.js';
 import Workouts from '../models/workouts.js';
 
@@ -72,14 +71,22 @@ const deleteWorkout = async (req, res, next) => {
   }
 };
 
-const getWorkoutLog = async (_req, res, next) => {
+async function searchWorkouts(req, res, next) {
+  console.log(req.query);
   try {
-    const logWorkout = await Activity.find();
-    return res.status(200).json(logWorkout);
+    const { search } = req.query;
+    const workouts = await Workouts.find({
+      $or: [
+        { name: { $regex: search, $options: 'i' } },
+        { description: { $regex: search, $options: 'i' } },
+        { type: { $regex: search, $options: 'i' } },
+      ],
+    });
+    return res.status(200).json(workouts);
   } catch (e) {
     next(e);
   }
-};
+}
 
 export default {
   getAllWorkouts,
@@ -87,5 +94,5 @@ export default {
   getSingleWorkout,
   updateSingleWorkout,
   deleteWorkout,
-  getWorkoutLog,
+  searchWorkouts,
 };

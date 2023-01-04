@@ -1,5 +1,4 @@
 import Muscle from '../models/muscle.js';
-import mongoose from 'mongoose';
 
 const getAllMuscleGroups = async (_req, res, next) => {
   try {

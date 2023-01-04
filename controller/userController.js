@@ -43,4 +43,13 @@ async function loginUser(req, res, next) {
   }
 }
 
+const getUserAccount = async (req, res, next) => {
+  try {
+    const account = await Account.find();
+    return res.status(200).json(account);
+  } catch (e) {
+    next(e);
+  }
+};
+
 export default { registerUser, loginUser };
