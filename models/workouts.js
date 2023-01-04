@@ -11,7 +11,7 @@ const workoutsSchema = new mongoose.Schema({
   difficulty: { type: String, required: true },
   totalTime: { type: Number, required: true },
   caloriesBurned: { type: Number, required: false },
-  muscle: { type: mongoose.Schema.ObjectId, ref: 'Muscle' },
+  muscleGroup: { type: String, required: true },
   equipmentRequired: { type: String, required: true },
 });
 
