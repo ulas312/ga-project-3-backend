@@ -220,15 +220,15 @@ async function seedDb() {
   const [user, adminUser] = await User.create([NON_ADMIN_USER, ADMIN_USER]);
   console.log('🏋🏽‍♀️🤸🏼‍♀️Created admin user with id', user._id);
 
-  const chestShouldersTricepsGroup = await Workouts.create({
+  const chestShouldersTricepsGroup = await Muscle.create({
     name: 'Chest, Shoulders & Triceps',
   });
-  console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', chestShouldersTriceps._id);
+  console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', chestShouldersTriceps);
 
-  const updatedChestShouldersTriceps = Workouts.map((area) => ({
-    ...area,
+  const updatedChestShouldersTriceps = chestShouldersTriceps.map((workout) => ({
+    ...workout,
     addedBy: adminUser._id,
-    workout: chestShouldersTricepsGroup._id,
+    muscleGroup: chestShouldersTricepsGroup._id,
   }));
 
   const chestShouldersTricepsFromDb = await Workouts.create(
@@ -240,13 +240,13 @@ async function seedDb() {
     { $push: { groups: chestShouldersTricepsFromDb.map((b) => b._id) } }
   );
 
-  const backAndBicepsGroup = await Workouts.create({
+  const backAndBicepsGroup = await Muscle.create({
     name: 'Back & Biceps',
   });
-  console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', backAndBiceps._id);
+  console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', backAndBiceps);
 
-  const updatedBackAndBiceps = Workouts.map((area) => ({
-    ...area,
+  const updatedBackAndBiceps = backAndBiceps.map((workout) => ({
+    ...workout,
     addedBy: adminUser._id,
     workout: backAndBicepsGroup._id,
   }));
@@ -258,13 +258,13 @@ async function seedDb() {
     { $push: { groups: backAndBicepsFromDb.map((b) => b._id) } }
   );
 
-  const legsAndAbsGroup = await Workouts.create({
+  const legsAndAbsGroup = await Muscle.create({
     name: 'Legs & Abs',
   });
-  console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', legsAndAbs._id);
+  console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', legsAndAbs);
 
-  const updatedLegsAndAbs = Workouts.map((area) => ({
-    ...area,
+  const updatedLegsAndAbs = legsAndAbs.map((workout) => ({
+    ...workout,
     addedBy: adminUser._id,
     workout: legsAndAbsGroup._id,
   }));
@@ -276,13 +276,13 @@ async function seedDb() {
     { $push: { groups: legsAndAbsFromDb.map((b) => b._id) } }
   );
 
-  const fullBodyGroup = await Workouts.create({
+  const fullBodyGroup = await Muscle.create({
     name: 'Full Body',
   });
-  console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', fullBody._id);
+  console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', fullBody);
 
-  const updatedFullBody = Workouts.map((area) => ({
-    ...area,
+  const updatedFullBody = fullBody.map((workout) => ({
+    ...workout,
     addedBy: adminUser._id,
     workout: fullBodyGroup._id,
   }));
