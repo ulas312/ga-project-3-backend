@@ -12,6 +12,7 @@ const workoutsSchema = new mongoose.Schema({
   totalTime: { type: Number, required: true },
   caloriesBurned: { type: Number, required: false },
   muscleGroup: { type: mongoose.Schema.ObjectId, ref: 'Muscle Group' },
+  equipmentRequired: { type: String, required: true },
 });
 
 workoutsSchema.plugin(mongooseUniqueValidator);

@@ -239,7 +239,7 @@ async function seedDb() {
     { _id: chestShouldersTricepsGroup._id },
     { $push: { groups: chestShouldersTricepsFromDb.map((b) => b._id) } }
   );
-
+  console.log('failing');
   const backAndBicepsGroup = await Muscle.create({
     name: 'Back & Biceps',
   });
@@ -248,7 +248,7 @@ async function seedDb() {
   const updatedBackAndBiceps = backAndBiceps.map((workout) => ({
     ...workout,
     addedBy: adminUser._id,
-    workout: backAndBicepsGroup._id,
+    muscleGroup: backAndBicepsGroup._id,
   }));
 
   const backAndBicepsFromDb = await Workouts.create(updatedBackAndBiceps);
@@ -258,44 +258,44 @@ async function seedDb() {
     { $push: { groups: backAndBicepsFromDb.map((b) => b._id) } }
   );
 
-  const legsAndAbsGroup = await Muscle.create({
-    name: 'Legs & Abs',
-  });
-  console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', legsAndAbs);
+  //   const legsAndAbsGroup = await Muscle.create({
+  //     name: 'Legs & Abs',
+  //   });
+  //   console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', legsAndAbs);
 
-  const updatedLegsAndAbs = legsAndAbs.map((workout) => ({
-    ...workout,
-    addedBy: adminUser._id,
-    workout: legsAndAbsGroup._id,
-  }));
+  //   const updatedLegsAndAbs = legsAndAbs.map((workout) => ({
+  //     ...workout,
+  //     addedBy: adminUser._id,
+  //     muscleGroup: legsAndAbsGroup._id,
+  //   }));
 
-  const legsAndAbsFromDb = await Workouts.create(updatedLegsAndAbs);
+  //   const legsAndAbsFromDb = await Workouts.create(updatedLegsAndAbs);
 
-  await Muscle.findOneAndUpdate(
-    { _id: legsAndAbsGroup._id },
-    { $push: { groups: legsAndAbsFromDb.map((b) => b._id) } }
-  );
+  //   await Muscle.findOneAndUpdate(
+  //     { _id: legsAndAbsGroup._id },
+  //     { $push: { groups: legsAndAbsFromDb.map((b) => b._id) } }
+  //   );
 
-  // const fullBodyGroup = await Muscle.create({
-  //   name: 'Full Body',
-  // });
-  // console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', fullBody);
+  //   const fullBodyGroup = await Muscle.create({
+  //     name: 'Full Body',
+  //   });
+  //   console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', fullBody);
 
-  // const updatedFullBody = fullBody.map((workout) => ({
-  //   ...workout,
-  //   addedBy: adminUser._id,
-  //   workout: fullBodyGroup._id,
-  // }));
+  //   const updatedFullBody = fullBody.map((workout) => ({
+  //     ...workout,
+  //     addedBy: adminUser._id,
+  //     muscleGroup: fullBodyGroup._id,
+  //   }));
 
-  // const fullBodyFromDb = await Workouts.create(updatedFullBody);
+  //   const fullBodyFromDb = await Workouts.create(updatedFullBody);
 
-  // await Muscle.findOneAndUpdate(
-  //   { _id: fullBodyGroup._id },
-  //   { $push: { groups: fullBodyFromDb.map((b) => b._id) } }
-  // );
+  //   await Muscle.findOneAndUpdate(
+  //     { _id: fullBodyGroup._id },
+  //     { $push: { groups: fullBodyFromDb.map((b) => b._id) } }
+  //   );
 
-  await disconnectDb();
-  console.log('🏋🏽‍♀️🤸🏼‍♀️Disconnected from mongodb');
+  //   await disconnectDb();
+  //   console.log('🏋🏽‍♀️🤸🏼‍♀️Disconnected from mongodb');
 }
 
 seedDb();
