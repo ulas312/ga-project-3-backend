@@ -240,10 +240,10 @@ async function seedDb() {
     { $push: { groups: chestShouldersTricepsFromDb.map((b) => b._id) } }
   );
 
-  // const backAndBicepsGroup = await Muscle.create({
-  //   name: 'Back & Biceps',
-  // });
-  // console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', backAndBiceps);
+  const backAndBicepsGroup = await Muscle.create({
+    name: 'Back & Biceps',
+  });
+  console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', backAndBiceps);
 
   const updatedBackAndBiceps = backAndBiceps.map((workout) => ({
     ...workout,
