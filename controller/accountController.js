@@ -11,7 +11,7 @@ const getUserAccount = async (_req, res, next) => {
 
 const updateUserAccount = async (req, res, next) => {
   try {
-    if (req.currentUser._id || req.currentUser.isAdmin) {
+    if (req.currentUser.isAdmin) {
       const account = await Account.findById(req.params.id);
       account.set(req.body);
       const updatedAccount = await account.save();
@@ -28,9 +28,9 @@ const deleteUserAccount = async (req, res, next) => {
   try {
     const account = await Account.findById(req.params.id);
 
-    if (req.currentUser._id || req.currentUser.isAdmin) {
+    if (req.currentUser.isAdmin) {
       await Account.findByIdAndDelete(req.params.id);
-      return res.status(200).json({ message: 'successfully deleted workout' });
+      return res.status(200).json({ message: 'Successfully deleted account' });
     }
 
     return res.status(301).json({ message: 'Unauthorized' });
