@@ -19,13 +19,15 @@ Router.route('/workouts/:id')
   .put(secureRoute, workoutsController.updateSingleWorkout)
   .delete(secureRoute, workoutsController.deleteWorkout);
 
-Router.route('/muscle-group').get(muscleGroupController.getAllMuscleGroups);
+Router.route('/workout-directory').get(
+  muscleGroupController.getAllMuscleGroups
+);
 
-Router.route('/muscle-group/:id/workouts').get(
+Router.route('/workout-directory/:id/workouts').get(
   muscleGroupController.getWorkoutsByMuscleGroup
 );
 
-Router.route('/log-workout')
+Router.route('/workout-log')
   .get(activityController.getWorkoutLog)
   .put(activityController.updateWorkoutLog);
 
