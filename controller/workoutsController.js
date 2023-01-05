@@ -30,7 +30,9 @@ const createNewWorkout = async (req, res, next) => {
 
 const getSingleWorkout = async (req, res, next) => {
   try {
-    const workout = await Workouts.findById(req.params.id).populate('muscle');
+    const workout = await Workouts.findById(req.params.id).populate(
+      'muscleGroup'
+    );
     return workout
       ? res.status(200).json(workout)
       : res
