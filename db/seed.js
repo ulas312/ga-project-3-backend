@@ -410,7 +410,6 @@ async function seedDb() {
 
   await Muscle.findOneAndUpdate(
     { _id: absGroup._id },
-<<<<<<< HEAD
     { $push: { workout: absFromDb.map((b) => b._id) } },
     {
       $push: {
@@ -418,9 +417,6 @@ async function seedDb() {
           'https://www.mensjournal.com/wp-content/uploads/mf/low_body_fat_muscular_muscle_abs_chest_main.jpg?quality=86&strip=all',
       },
     }
-=======
-    { $push: { workout: absFromDb.map((b) => b._id) } }
->>>>>>> development
   );
 
   const chestGroup = await Muscle.create({
