@@ -23,7 +23,7 @@ Router.route('/workout-directory').get(
   muscleGroupController.getAllMuscleGroups
 );
 
-Router.route('/workout-directory/workouts/').get(
+Router.route('/workout-directory/workouts').get(
   muscleGroupController.getWorkoutsByMuscleGroup
 );
 
