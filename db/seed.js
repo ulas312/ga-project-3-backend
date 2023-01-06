@@ -78,7 +78,7 @@ const chest = [
     difficulty: 'Hard',
     totalTime: 10,
     caloriesBurned: 180,
-    muscleGroup: 'Chest, Shoulders and Triceps',
+    muscleGroup: 'Chest',
     equipmentRequired: 'Barbell and Weight Bench',
   },
 
@@ -127,7 +127,7 @@ const back = [
     difficulty: 'Intermediate',
     totalTime: 15,
     caloriesBurned: 220,
-    muscleGroup: 'Glutes, Hamstrings, Back and Trapezius',
+    muscleGroup: 'Back',
     equipmentRequired: 'Barbell',
   },
 
@@ -159,7 +159,7 @@ const back = [
     difficulty: 'Beginner',
     totalTime: 8,
     caloriesBurned: 180,
-    muscleGroup: 'Upper Trapezius',
+    muscleGroup: 'Back',
     equipmentRequired: 'Barbell',
   },
   {
@@ -174,7 +174,7 @@ const back = [
     difficulty: 'Intermediate',
     totalTime: 10,
     caloriesBurned: 200,
-    muscleGroup: 'Upper back (latissimus dorsi, rhomboids, and trapezius)',
+    muscleGroup: 'Back',
     equipmentRequired: 'Barbell or Dumbbell',
   },
 ];
@@ -192,8 +192,7 @@ const legs = [
     difficulty: 'Intermediate',
     totalTime: 10,
     caloriesBurned: 280,
-    muscleGroup:
-      'Gluteus Maximus, Minimus and Medius, Hamstrings, Calves, Guadriceps',
+    muscleGroup: 'Legs',
     equipmentRequired:
       'Squats can be completed without the use of equiptment, but challenge yourself with a barbell if you are feeling confident',
   },
@@ -210,7 +209,7 @@ const legs = [
     difficulty: 'Beginner',
     totalTime: 15,
     caloriesBurned: 120,
-    muscleGroup: 'Quads, Hamstrings, Glutes and Calves',
+    muscleGroup: 'Legs',
     equipmentRequired: 'Horizontal Leg Press',
   },
 
@@ -260,7 +259,7 @@ const shoulders = [
     difficulty: 'Beginner',
     totalTime: 10,
     caloriesBurned: 300,
-    muscleGroup: 'Full body',
+    muscleGroup: 'Shoulders',
     equipmentRequired: 'Cable Machine',
   },
   {
@@ -399,12 +398,12 @@ async function seedDb() {
   const absGroup = await Muscle.create({
     name: 'Abs',
   });
-  console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group Abs');
+  console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', abs);
 
   const updatedAbs = abs.map((workout) => ({
     ...workout,
     addedBy: adminUser._id,
-    muscleGroup: abs._id,
+    muscleGroup: absGroup._id,
   }));
 
   const absFromDb = await Workouts.create(updatedAbs);
