@@ -397,6 +397,8 @@ async function seedDb() {
 
   const absGroup = await Muscle.create({
     name: 'Abs',
+    image:
+      'https://www.mensjournal.com/wp-content/uploads/mf/low_body_fat_muscular_muscle_abs_chest_main.jpg?quality=86&strip=all',
   });
   console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', abs);
 
@@ -410,17 +412,13 @@ async function seedDb() {
 
   await Muscle.findOneAndUpdate(
     { _id: absGroup._id },
-    { $push: { workout: absFromDb.map((b) => b._id) } },
-    {
-      $push: {
-        image:
-          'https://www.mensjournal.com/wp-content/uploads/mf/low_body_fat_muscular_muscle_abs_chest_main.jpg?quality=86&strip=all',
-      },
-    }
+    { $push: { workout: absFromDb.map((b) => b._id) } }
   );
 
   const chestGroup = await Muscle.create({
     name: 'Chest',
+    image:
+      'https://www.muscleandfitness.com/wp-content/uploads/2019/04/cable-crossover_20.jpg?quality=86&strip=all',
   });
   console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', chest);
 
@@ -434,17 +432,13 @@ async function seedDb() {
 
   await Muscle.findOneAndUpdate(
     { _id: chestGroup._id },
-    { $push: { workout: chestFromDb.map((b) => b._id) } },
-    {
-      $push: {
-        image:
-          'https://www.muscleandfitness.com/wp-content/uploads/2019/04/cable-crossover_20.jpg?quality=86&strip=all',
-      },
-    }
+    { $push: { workout: chestFromDb.map((b) => b._id) } }
   );
 
   const legsGroup = await Muscle.create({
     name: 'Legs',
+    image:
+      'https://www.bodybuilding.com/images/2016/june/leg-workouts-for-men-7-best-workouts-for-quads-glutes-hams-header-v2-960x540.jpg',
   });
   console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', legs);
 
@@ -458,17 +452,13 @@ async function seedDb() {
 
   await Muscle.findOneAndUpdate(
     { _id: legsGroup._id },
-    { $push: { workout: legsFromDb.map((b) => b._id) } },
-    {
-      $push: {
-        image:
-          'https://www.bodybuilding.com/images/2016/june/leg-workouts-for-men-7-best-workouts-for-quads-glutes-hams-header-v2-960x540.jpg',
-      },
-    }
+    { $push: { workout: legsFromDb.map((b) => b._id) } }
   );
 
   const backGroup = await Muscle.create({
     name: 'Back',
+    image:
+      'https://www.muscleandfitness.com/wp-content/uploads/2017/03/back-squat-barbell-11090.jpg?quality=86&strip=all',
   });
   console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', back);
 
@@ -482,17 +472,13 @@ async function seedDb() {
 
   await Muscle.findOneAndUpdate(
     { _id: backGroup._id },
-    { $push: { workout: backFromDb.map((b) => b._id) } },
-    {
-      $push: {
-        image:
-          'https://www.muscleandfitness.com/wp-content/uploads/2017/03/back-squat-barbell-11090.jpg?quality=86&strip=all',
-      },
-    }
+    { $push: { workout: backFromDb.map((b) => b._id) } }
   );
 
   const shouldersGroup = await Muscle.create({
     name: 'Shoulders',
+    image:
+      'https://fitnessvolt.com/wp-content/uploads/2022/06/30-Minute-Shoulder-Workout.jpg',
   });
   console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', shoulders);
 
@@ -506,17 +492,13 @@ async function seedDb() {
 
   await Muscle.findOneAndUpdate(
     { _id: shouldersGroup._id },
-    { $push: { workout: shouldersFromDb.map((b) => b._id) } },
-    {
-      $push: {
-        image:
-          'https://fitnessvolt.com/wp-content/uploads/2022/06/30-Minute-Shoulder-Workout.jpg',
-      },
-    }
+    { $push: { workout: shouldersFromDb.map((b) => b._id) } }
   );
 
   const bicepsGroup = await Muscle.create({
     name: 'Biceps',
+    image:
+      'https://www.muscleandfitness.com/wp-content/uploads/2019/01/woman-flexing-bicep-GettyImages-906615248.jpg?quality=86&strip=all',
   });
   console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', biceps);
 
@@ -530,17 +512,13 @@ async function seedDb() {
 
   await Muscle.findOneAndUpdate(
     { _id: bicepsGroup._id },
-    { $push: { workout: bicepsFromDb.map((b) => b._id) } },
-    {
-      $push: {
-        image:
-          'https://www.muscleandfitness.com/wp-content/uploads/2019/01/woman-flexing-bicep-GettyImages-906615248.jpg?quality=86&strip=all',
-      },
-    }
+    { $push: { workout: bicepsFromDb.map((b) => b._id) } }
   );
 
   const tricepsGroup = await Muscle.create({
     name: 'Triceps',
+    image:
+      'https://assets.sweat.com/html_body_blocks/images/000/010/801/original/KelseyWellsTricepExercise_en674cdd69d3e2f61dbc9d0c62f321b8ed.jpg?1559000323',
   });
   console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', triceps);
 
@@ -554,13 +532,7 @@ async function seedDb() {
 
   await Muscle.findOneAndUpdate(
     { _id: tricepsGroup._id },
-    { $push: { workout: tricepsFromDb.map((b) => b._id) } },
-    {
-      $push: {
-        image:
-          'https://assets.sweat.com/html_body_blocks/images/000/010/801/original/KelseyWellsTricepExercise_en674cdd69d3e2f61dbc9d0c62f321b8ed.jpg?1559000323',
-      },
-    }
+    { $push: { workout: tricepsFromDb.map((b) => b._id) } }
   );
 
   await disconnectDb();
