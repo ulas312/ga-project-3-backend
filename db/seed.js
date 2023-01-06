@@ -109,7 +109,7 @@ const chest = [
     difficulty: 'Intermediate',
     totalTime: 15,
     caloriesBurned: 300,
-    muscleGroup: 'Triceps',
+    muscleGroup: 'Chest',
     equipmentRequired: 'Barbell or Dumbbell',
   },
 ];
@@ -280,6 +280,104 @@ const shoulders = [
   },
 ];
 
+const biceps = [
+  {
+    name: 'Barbell Curls',
+    image:
+      'https://weighttraining.guide/wp-content/uploads/2016/05/barbell-curl-resized.png',
+    description:
+      'A barbell curl is a variation of the biceps curl that uses a weighted barbell. Perform barbell curls by grabbing a barbell with a shoulder-width supinated grip (palms facing towards your body). Hinge your elbows, and lift the barbell toward your chest.',
+    reps: 15,
+    sets: 3,
+    rest: 60,
+    difficulty: 'Intermediate',
+    totalTime: 13,
+    caloriesBurned: 280,
+    muscleGroup: 'Biceps',
+    equipmentRequired: 'Barbell',
+  },
+
+  {
+    name: 'Seated Dumbbell Curls',
+    image:
+      'https://weighttraining.guide/wp-content/uploads/2021/09/Seated-Alternating-dumbbell-Curl.png',
+    description:
+      'Sit on a bench, hold two dumbbells at your sides with palms facing each other. Use your bicep to curl the dumbbells up to your shoulders, twisting your palms to face your chest as you lift them. Slowly lower the dumbbells back down to your side and repeat.',
+    reps: 12,
+    sets: 3,
+    rest: 30,
+    difficulty: 'Beginner',
+    totalTime: 10,
+    caloriesBurned: 120,
+    muscleGroup: 'Biceps',
+    equipmentRequired: 'Dumbbell',
+  },
+  {
+    name: 'Incline Dumbbell Curls',
+    image:
+      'https://weighttraining.guide/wp-content/uploads/2017/01/Incline-Dumbbell-Curl-resized.png',
+    description:
+      'Perform incline dumbbell curls by sitting on an incline bench set to a 45- or 60-degree angle. Hold a pair of dumbbells at your side. Squeeze your biceps and bend your elbows to lift the dumbbells to shoulder level, then lower them again. Repeat this movement for the desired number of reps.',
+    reps: 8,
+    sets: 4,
+    rest: 30,
+    difficulty: 'Hard',
+    totalTime: 15,
+    caloriesBurned: 280,
+    muscleGroup: 'Biceps',
+    equipmentRequired: 'Dumbbells, Incline bench',
+  },
+];
+
+const triceps = [
+  {
+    name: 'Bench Dip',
+    image:
+      'https://fitnessvolt.com/wp-content/uploads/2018/04/bent-knee-bench-dip-2.jpg',
+    description:
+      'Walk your feet out and extend your legs, lifting your bottom off the bench and holding there with extended arms. Hinging at the elbow, lower your body down as far as you can go, or until your arms form a 90-degree angle. Push up through your palms back to start.',
+    reps: 12,
+    sets: 3,
+    rest: 60,
+    difficulty: 'Beginner',
+    totalTime: 15,
+    caloriesBurned: 280,
+    muscleGroup: 'Triceps',
+    equipmentRequired: 'Bench',
+  },
+
+  {
+    name: 'Tricep Rope Pushdown',
+    image:
+      'https://weighttraining.guide/wp-content/uploads/2016/05/Triceps-Rope-Pushdown-resized.png',
+    description:
+      'Attach a rope handle to the high pulley of a cable station. Keeping your elbows tucked in at your sides grab the handle, tense your core, and bring your hands down until your arms are fully extended, then return to the starting position. Only your forearms should move.',
+    reps: 12,
+    sets: 3,
+    rest: 30,
+    difficulty: 'Intermediate',
+    totalTime: 10,
+    caloriesBurned: 220,
+    muscleGroup: 'Triceps',
+    equipmentRequired: 'Cable machine',
+  },
+  {
+    name: 'Tricep Press Machine',
+    image:
+      'https://weighttraining.guide/wp-content/uploads/2018/11/Machine-triceps-extension-resized.png?ezimgfmt=ng%3Awebp%2Fngcb4',
+    description:
+      'Press handles down, squeezing triceps hard, keeping elbows tight to body. Pause at the bottom before slowly allowing the handles to rise back up to the starting position, pause at the top, and repeat for the desired number of reps.',
+    reps: 12,
+    sets: 4,
+    rest: 30,
+    difficulty: 'Hard',
+    totalTime: 15,
+    caloriesBurned: 280,
+    muscleGroup: 'Triceps',
+    equipmentRequired: 'Press machine',
+  },
+];
+
 async function seedDb() {
   console.log('🏋🏽‍♀️🤸🏼‍♀️Connecting to mongodb');
   await connectDb();
@@ -386,6 +484,42 @@ async function seedDb() {
   await Muscle.findOneAndUpdate(
     { _id: shouldersGroup._id },
     { $push: { groups: shouldersFromDb.map((b) => b._id) } }
+  );
+
+  const bicepsGroup = await Muscle.create({
+    name: 'Biceps',
+  });
+  console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', biceps);
+
+  const updatedBiceps = shoulders.map((workout) => ({
+    ...workout,
+    addedBy: adminUser._id,
+    muscleGroup: bicepsGroup._id,
+  }));
+
+  const bicepsFromDb = await Workouts.create(updatedBiceps);
+
+  await Muscle.findOneAndUpdate(
+    { _id: bicepsGroup._id },
+    { $push: { groups: bicepsFromDb.map((b) => b._id) } }
+  );
+
+  const tricepsGroup = await Muscle.create({
+    name: 'Triceps',
+  });
+  console.log('🏋🏽‍♀️🤸🏼‍♀️Created muscle group', triceps);
+
+  const updatedTriceps = triceps.map((workout) => ({
+    ...workout,
+    addedBy: adminUser._id,
+    muscleGroup: tricepsGroup._id,
+  }));
+
+  const tricepsFromDb = await Workouts.create(updatedTriceps);
+
+  await Muscle.findOneAndUpdate(
+    { _id: tricepsGroup._id },
+    { $push: { groups: tricepsFromDb.map((b) => b._id) } }
   );
 
   await disconnectDb();
