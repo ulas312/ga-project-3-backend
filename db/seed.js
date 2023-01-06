@@ -29,7 +29,7 @@ const abs = [
     difficulty: 'Beginner',
     totalTime: 10,
     caloriesBurned: 200,
-    muscleGroup: 'Abs',
+    // muscleGroup: 'Abs',
     equipmentRequired: 'None',
   },
   {
@@ -44,7 +44,7 @@ const abs = [
     difficulty: 'Intermediate',
     totalTime: 5,
     caloriesBurned: 180,
-    muscleGroup: 'Abs',
+    // muscleGroup: 'Abs',
     equipmentRequired: 'None',
   },
 
@@ -60,7 +60,7 @@ const abs = [
     difficulty: 'Intermediate',
     totalTime: 15,
     caloriesBurned: 240,
-    muscleGroup: 'Abs',
+    // muscleGroup: 'Abs',
     equipmentRequired: 'Sandbag',
   },
 ];
@@ -78,7 +78,7 @@ const chest = [
     difficulty: 'Hard',
     totalTime: 10,
     caloriesBurned: 180,
-    muscleGroup: 'Chest',
+    // muscleGroup: 'Chest',
     equipmentRequired: 'Barbell and Weight Bench',
   },
 
@@ -93,7 +93,7 @@ const chest = [
     difficulty: 'Intermediate',
     totalTime: 10,
     caloriesBurned: 250,
-    muscleGroup: 'Chest',
+    // muscleGroup: 'Chest',
     equipmentRequired: 'None',
   },
 
@@ -109,7 +109,7 @@ const chest = [
     difficulty: 'Intermediate',
     totalTime: 15,
     caloriesBurned: 300,
-    muscleGroup: 'Chest',
+    // muscleGroup: 'Chest',
     equipmentRequired: 'Barbell or Dumbbell',
   },
 ];
@@ -127,7 +127,7 @@ const back = [
     difficulty: 'Intermediate',
     totalTime: 15,
     caloriesBurned: 220,
-    muscleGroup: 'Back',
+    // muscleGroup: 'Back',
     equipmentRequired: 'Barbell',
   },
 
@@ -143,7 +143,7 @@ const back = [
     difficulty: 'Beginner',
     totalTime: 15,
     caloriesBurned: 250,
-    muscleGroup: 'Back',
+    // muscleGroup: 'Back',
     equipmentRequired: 'Back extension machine',
   },
 
@@ -159,7 +159,7 @@ const back = [
     difficulty: 'Beginner',
     totalTime: 8,
     caloriesBurned: 180,
-    muscleGroup: 'Back',
+    // muscleGroup: 'Back',
     equipmentRequired: 'Barbell',
   },
   {
@@ -174,7 +174,7 @@ const back = [
     difficulty: 'Intermediate',
     totalTime: 10,
     caloriesBurned: 200,
-    muscleGroup: 'Back',
+    // muscleGroup: 'Back',
     equipmentRequired: 'Barbell or Dumbbell',
   },
 ];
@@ -192,7 +192,7 @@ const legs = [
     difficulty: 'Intermediate',
     totalTime: 10,
     caloriesBurned: 280,
-    muscleGroup: 'Legs',
+    // muscleGroup: 'Legs',
     equipmentRequired:
       'Squats can be completed without the use of equiptment, but challenge yourself with a barbell if you are feeling confident',
   },
@@ -209,7 +209,7 @@ const legs = [
     difficulty: 'Beginner',
     totalTime: 15,
     caloriesBurned: 120,
-    muscleGroup: 'Legs',
+    // muscleGroup: 'Legs',
     equipmentRequired: 'Horizontal Leg Press',
   },
 
@@ -225,7 +225,7 @@ const legs = [
     difficulty: 'Beginner',
     totalTime: 10,
     caloriesBurned: 200,
-    muscleGroup: 'Legs',
+    // muscleGroup: 'Legs',
     equipmentRequired: 'Leg curl machine',
   },
 ];
@@ -243,7 +243,7 @@ const shoulders = [
     difficulty: 'Intermediate',
     totalTime: 30,
     caloriesBurned: 250,
-    muscleGroup: 'Shoulders',
+    // muscleGroup: 'Shoulders',
     equipmentRequired: 'Dumbbells',
   },
 
@@ -259,7 +259,7 @@ const shoulders = [
     difficulty: 'Beginner',
     totalTime: 10,
     caloriesBurned: 300,
-    muscleGroup: 'Shoulders',
+    // muscleGroup: 'Shoulders',
     equipmentRequired: 'Cable Machine',
   },
   {
@@ -274,7 +274,7 @@ const shoulders = [
     difficulty: 'Hard',
     totalTime: 10,
     caloriesBurned: 300,
-    muscleGroup: 'Shoulders',
+    // muscleGroup: 'Shoulders',
     equipmentRequired: 'Dumbbells',
   },
 ];
@@ -292,7 +292,7 @@ const biceps = [
     difficulty: 'Intermediate',
     totalTime: 13,
     caloriesBurned: 280,
-    muscleGroup: 'Biceps',
+    // muscleGroup: 'Biceps',
     equipmentRequired: 'Barbell',
   },
 
@@ -308,7 +308,7 @@ const biceps = [
     difficulty: 'Beginner',
     totalTime: 10,
     caloriesBurned: 120,
-    muscleGroup: 'Biceps',
+    // muscleGroup: 'Biceps',
     equipmentRequired: 'Dumbbell',
   },
   {
@@ -323,7 +323,7 @@ const biceps = [
     difficulty: 'Hard',
     totalTime: 15,
     caloriesBurned: 280,
-    muscleGroup: 'Biceps',
+    // muscleGroup: 'Biceps',
     equipmentRequired: 'Dumbbells, Incline bench',
   },
 ];
@@ -341,7 +341,7 @@ const triceps = [
     difficulty: 'Beginner',
     totalTime: 15,
     caloriesBurned: 280,
-    muscleGroup: 'Triceps',
+    // muscleGroup: 'Triceps',
     equipmentRequired: 'Bench',
   },
 
@@ -357,7 +357,7 @@ const triceps = [
     difficulty: 'Intermediate',
     totalTime: 10,
     caloriesBurned: 220,
-    muscleGroup: 'Triceps',
+    // muscleGroup: 'Triceps',
     equipmentRequired: 'Cable machine',
   },
   {
@@ -372,7 +372,7 @@ const triceps = [
     difficulty: 'Hard',
     totalTime: 15,
     caloriesBurned: 280,
-    muscleGroup: 'Triceps',
+    // muscleGroup: 'Triceps',
     equipmentRequired: 'Press machine',
   },
 ];
@@ -410,7 +410,13 @@ async function seedDb() {
 
   await Muscle.findOneAndUpdate(
     { _id: absGroup._id },
-    { $push: { groups: absFromDb.map((b) => b._id) } }
+    { $push: { workout: absFromDb.map((b) => b._id) } },
+    {
+      $push: {
+        image:
+          'https://www.mensjournal.com/wp-content/uploads/mf/low_body_fat_muscular_muscle_abs_chest_main.jpg?quality=86&strip=all',
+      },
+    }
   );
 
   const chestGroup = await Muscle.create({
@@ -428,7 +434,13 @@ async function seedDb() {
 
   await Muscle.findOneAndUpdate(
     { _id: chestGroup._id },
-    { $push: { groups: chestFromDb.map((b) => b._id) } }
+    { $push: { workout: chestFromDb.map((b) => b._id) } },
+    {
+      $push: {
+        image:
+          'https://www.muscleandfitness.com/wp-content/uploads/2019/04/cable-crossover_20.jpg?quality=86&strip=all',
+      },
+    }
   );
 
   const legsGroup = await Muscle.create({
@@ -446,7 +458,13 @@ async function seedDb() {
 
   await Muscle.findOneAndUpdate(
     { _id: legsGroup._id },
-    { $push: { groups: legsFromDb.map((b) => b._id) } }
+    { $push: { workout: legsFromDb.map((b) => b._id) } },
+    {
+      $push: {
+        image:
+          'https://www.bodybuilding.com/images/2016/june/leg-workouts-for-men-7-best-workouts-for-quads-glutes-hams-header-v2-960x540.jpg',
+      },
+    }
   );
 
   const backGroup = await Muscle.create({
@@ -464,7 +482,13 @@ async function seedDb() {
 
   await Muscle.findOneAndUpdate(
     { _id: backGroup._id },
-    { $push: { groups: backFromDb.map((b) => b._id) } }
+    { $push: { workout: backFromDb.map((b) => b._id) } },
+    {
+      $push: {
+        image:
+          'https://www.muscleandfitness.com/wp-content/uploads/2017/03/back-squat-barbell-11090.jpg?quality=86&strip=all',
+      },
+    }
   );
 
   const shouldersGroup = await Muscle.create({
@@ -482,7 +506,13 @@ async function seedDb() {
 
   await Muscle.findOneAndUpdate(
     { _id: shouldersGroup._id },
-    { $push: { groups: shouldersFromDb.map((b) => b._id) } }
+    { $push: { workout: shouldersFromDb.map((b) => b._id) } },
+    {
+      $push: {
+        image:
+          'https://fitnessvolt.com/wp-content/uploads/2022/06/30-Minute-Shoulder-Workout.jpg',
+      },
+    }
   );
 
   const bicepsGroup = await Muscle.create({
@@ -500,7 +530,13 @@ async function seedDb() {
 
   await Muscle.findOneAndUpdate(
     { _id: bicepsGroup._id },
-    { $push: { groups: bicepsFromDb.map((b) => b._id) } }
+    { $push: { workout: bicepsFromDb.map((b) => b._id) } },
+    {
+      $push: {
+        image:
+          'https://www.muscleandfitness.com/wp-content/uploads/2019/01/woman-flexing-bicep-GettyImages-906615248.jpg?quality=86&strip=all',
+      },
+    }
   );
 
   const tricepsGroup = await Muscle.create({
@@ -518,7 +554,13 @@ async function seedDb() {
 
   await Muscle.findOneAndUpdate(
     { _id: tricepsGroup._id },
-    { $push: { groups: tricepsFromDb.map((b) => b._id) } }
+    { $push: { workout: tricepsFromDb.map((b) => b._id) } },
+    {
+      $push: {
+        image:
+          'https://assets.sweat.com/html_body_blocks/images/000/010/801/original/KelseyWellsTricepExercise_en674cdd69d3e2f61dbc9d0c62f321b8ed.jpg?1559000323',
+      },
+    }
   );
 
   await disconnectDb();
