@@ -1,4 +1,5 @@
 import Muscle from '../models/muscle.js';
+import Workouts from '../models/workouts.js';
 
 const getAllMuscleGroups = async (_req, res, next) => {
   try {
@@ -9,18 +10,18 @@ const getAllMuscleGroups = async (_req, res, next) => {
   }
 };
 
-const getWorkoutsByMuscleGroup = async (req, res, next) => {
+async function getWorkoutsBySelectedMuscleGroup(req, res, next) {
   try {
-    const muscleGroup = await Muscle.findById(req.params.id).populate(
-      'workout'
-    );
-    return res.status(200).json(muscleGroup);
-  } catch (e) {
-    next(e);
+    const ids = req.query.muscleGroups.split(',');
+    console.log({ ids });
+    const groups = await Workouts.find({ _id: { $in: ids } });
+    return res.status(200).json(groups);
+  } catch (error) {
+    next(error);
   }
-};
+}
 
 export default {
   getAllMuscleGroups,
-  getWorkoutsByMuscleGroup,
+  getWorkoutsBySelectedMuscleGroup,
 };

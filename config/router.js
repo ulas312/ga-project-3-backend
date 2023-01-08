@@ -24,7 +24,7 @@ Router.route('/workout-directory').get(
 );
 
 Router.route('/workout-directory/workouts').get(
-  muscleGroupController.getWorkoutsByMuscleGroup
+  muscleGroupController.getWorkoutsBySelectedMuscleGroup
 );
 
 Router.route('/workout-log')
