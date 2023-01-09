@@ -29,11 +29,8 @@ Router.route('/workout-directory/workouts').get(
 
 Router.route('/workout-log')
   .get(activityController.getWorkoutLog)
+  .get(workoutsController.getSelectedWorkouts)
   .put(activityController.updateWorkoutLog);
-
-Router.route('/workout-log/selected-workouts').get(
-  workoutsController.getSelectedWorkouts
-);
 
 Router.route('/account/:id')
   .get(accountController.getUserAccount)
