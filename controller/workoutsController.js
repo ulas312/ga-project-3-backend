@@ -43,6 +43,17 @@ const getSingleWorkout = async (req, res, next) => {
   }
 };
 
+const getSelectedWorkouts = async (req, res, next) => {
+  try {
+    const ids = req.query.selectedWorkouts.split(',');
+    console.log({ ids });
+    const groups = await Workouts.find({ _id: { $in: ids } });
+    return res.status(200).json(groups);
+  } catch (error) {
+    next(error);
+  }
+};
+
 const updateSingleWorkout = async (req, res, next) => {
   try {
     if (req.currentUser.isAdmin) {
@@ -94,6 +105,7 @@ export default {
   getAllWorkouts,
   createNewWorkout,
   getSingleWorkout,
+  getSelectedWorkouts,
   updateSingleWorkout,
   deleteWorkout,
   searchWorkouts,

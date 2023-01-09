@@ -31,6 +31,10 @@ Router.route('/workout-log')
   .get(activityController.getWorkoutLog)
   .put(activityController.updateWorkoutLog);
 
+Router.route('/workout-log/selected-workouts').get(
+  workoutsController.getSelectedWorkouts
+);
+
 Router.route('/account/:id')
   .get(accountController.getUserAccount)
   .put(secureRoute, accountController.updateUserAccount)
